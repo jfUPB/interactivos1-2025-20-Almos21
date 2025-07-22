@@ -41,4 +41,5 @@ function draw() {
 circle(x, y, 50);
 }
 ```
-![Pantallazo de resultado] <img width="1555" height="641" alt="image" src="https://github.com/user-attachments/assets/30a8fb33-d61e-410d-ad9a-f7bed603bbee" />
+
+![Pantallazo de resultado](<img width="1555" height="641" alt="image" src="https://github.com/user-attachments/assets/30a8fb33-d61e-410d-ad9a-f7bed603bbee" />)
