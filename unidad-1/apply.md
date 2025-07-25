@@ -4,6 +4,8 @@
 
 ### Actividad 05
 
+#### Explica cómo funciona el sistema físico interactivo que acabamos de crear.
+Este sistema funciona obteniendo un imput de el micro: bit y generando una respuesta a partir de esta. El imput implementado en este caso son los dos botones incorporados en el micro:bit (A y B), el proceso que ocurre en el sistema es generar un bucle que mientras el botón A sea presionado genera un mensaje y si al contrario nada es presionado genera otro, estos mensajes generan dentro del código que los procesa una señal que genera una respuesta a través del output que en este caso es la pantalla, es dependiendo de que señal se use que el ouput será un color de cuadro diferente.
 
 ### Actividad 06
 [Código al editor de p5.js](https://editor.p5js.org/Almos21/sketches/SdAkdeTqZ)
