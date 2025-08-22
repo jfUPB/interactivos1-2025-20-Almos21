@@ -70,3 +70,101 @@ function keyPressed() {
     port.write(keyValue);
   }
 }
+
+......
+
+
+let PASSWORD = ['A', 'B', 'A'];
+let key = [];
+let keyIndex = 0;
+let count = 20;
+let startTime;
+let state = "CONFIG";
+
+function setup() {
+  createCanvas(400, 400);
+  textAlign(CENTER, CENTER);
+  textSize(32);
+  startTime = millis();
+}
+
+function draw() {
+  background(20);
+
+  if (state === "CONFIG") {
+    fill(200);
+    text("Configuración \nTiempo: " + count, width / 2, height / 2);
+  } 
+  
+  else if (state === "ARMED") {
+    fill(255, 50, 50);
+    text("ARMED\nTiempo: " + count, width / 2, height / 2);
+
+    if (millis() - startTime > 1000) {
+      startTime = millis();
+      count--;
+      if (count <= 0) {
+        state = "EXPLODED";
+      }
+    }
+  } 
+  
+  else if (state === "EXPLODED") {
+    fill(255, 0, 0);
+    text(" BOOM ", width / 2, height / 2);
+  }
+}
+
+function keyPressed() {
+  keyValue = key.toUpperCase();
+  if(validChars.includes(keyValue)){
+    console.log(keyValue);
+    port.write(keyValue);
+  }
+  
+function keyIsPressed() {
+  if (state === "CONFIG") {
+    if (key === "A") {
+      count = min(count + 1, 60);
+    } 
+    else if (key === "B") {
+      count = max(10, count - 1);
+    } 
+    else if (key === "S") { // shake
+      startTime = millis();
+      state = "ARMED";
+    }
+  } 
+  
+  else if (state === "ARMED") {
+    if (key === "A" || key === "B") {
+      key.push(key);
+      keyIndex++;
+
+      if (keyIndex === PASSWORD.length) {
+        let passOk = true;
+        for (let i = 0; i < PASSWORD.length; i++) {
+          if (key[i] !== PASSWORD[i]) {
+            passOk = false;
+            break;
+          }
+        }
+
+        if (passOk) {
+          count = 20;
+          state = "CONFIG";
+        }
+        key = [];
+        keyIndex = 0;
+      }
+    }
+  } 
+  
+  else if (state === "EXPLODED") {
+    if (key === "R") { // reset
+      count = 20;
+      startTime = millis();
+      state = "CONFIG";
+    }
+  }
+}
