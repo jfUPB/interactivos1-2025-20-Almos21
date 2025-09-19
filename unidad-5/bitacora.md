@@ -25,6 +25,7 @@ Ahora, cambiando al nuevo código que transmite tanto en binario como en ASCII s
 Es ahora evidente como al pasarlo al hex los mensajes enviados son mucho más largos, no solo porque se envie dos veces, sino que dejando de lado el mensaje en bits se nota que se envia mucho más, incluso también quitando el mensaje que separa binario y ASCII, el mensaje en ASCII requiere muchos más bytes, demostrando asi una ventaja del lenguaje binario frente a el ASCII, lo cual lleva a preguntas como el ¿Cual es mejor entre ambos?, esto lleva a una respuesta y es que realmente cada uno tiene su fortaleza.
 
 ### ¿En que casos es mejor uno que el otro desde el punto del diseño, considerando diferentes factores como la legibilidad y eficiencia?
+<a name="pregunta1"></a>
 Pues esto es puede ser respondido teniendo en cuenta lo visto hasta ahora e investigando, El uso del ASCII permite una mayor legibilidad y entendimiento, es muchisimo más cómodo para comprender, facilita muchisimo el hecho de interpretar y depurar el contenido de un programa, ahora, como se vió anteriormente al cambiar por ultima vez el código y comparar uno a uno binario y ASCII se vió como este ultimo requiere mayor uso de bytes, esto puede en programas grandes afectar el rendimiento y la rapidez a comparación de el lenguaje binario.
 
 El lenguaje binario es entonces más rápido al momento de enviar datos, los envia de manera más compacta y sencilla y lo hace más rápido, su problema por otro lado es su legibilidad, puede ser en varios casos poco eficiente debido a que puede tener más errores debido a que necesita conocer bien el formato, si no se conoce bien su estructura puede generar errores facilmente. En cuanto a diseño el ASCII es muy usado debido a que permitió estandarizar una forma de representar el texto en estos programas y es usado mayormente en todo programa que requiera algun tipo de interfaz permitiendo que aquellos trabajando en esto puedan hacerlo de manera más cómoda y sencilla, el binario por otro lado es de por si el lenguaje que utiliza todo sistema para funcionar y codificar los mensajes en esto permite como ya lo dije anteriormente más rapidez y rendimiento, es útil principalmente en programas que utilizan grandes cantidades de datos.
@@ -323,4 +324,5 @@ Mi nota propuesta:
 Criterio 1: profundidad de la indagación
 
 Mi autoevaluación: me sitúo en el nivel Excelente (nota:4,8) porque…
-Evidencias: Ej: mis preguntas iniciales [página 2] eran sobre “qué”, pero evolucionaron a preguntas sobre “por qué” como se ve en mi experimento sobre la vtable.
+Evidencias: Tanto en la [actividad 02](#pregunta1) como en la activdad 03 me surgieron preguntas que pude resolver investigando y analizando lo obtenido en clase, estas preguntas iban más allá del qué y se preguntaban el porqué del diseño y en comparar en que situaciones y bajo que casos eran mejor ciertas estrategias y métodos de envio de datos.
+
