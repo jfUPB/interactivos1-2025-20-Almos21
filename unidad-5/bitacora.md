@@ -15,6 +15,8 @@ En cuanto a que ventaja le encontraria por ahora a usar binario en vez de ASCII 
 Al cambiar por el nuevo código se envian 12 letras en código hex por cada vez que agito el micro:bit 
 <img width="1243" height="260" alt="image" src="https://github.com/user-attachments/assets/549c9463-0f96-4a56-b9aa-e569e2faef5c" />
 
+<a name="ejemplo"></a>
+
 Cada vez que envia un emnsaje se ve como envia 12 digitos lo cual serían los 6 bytes esperados, debido a que cada byte es equivalente a 2 digitos hex, al analizar cada vez que se envia el mensaje se ve como envia algo así ``fe 14 02 cc 00 00`` viendo su orden y sabiendo la existencia del ``'>2h2B'`` se puede identificar como cumple con el 2 enteros cortos con dos bytes cada uno para los valores del acelerómetro (que en ese caso serían ``fe 14 02 cc`` siendo cada entero 2 digitos hex, mientras que con el estado a y b se envian 2 enteros cada uno de 1 byte, siendo estos en este caso ``00 00`` siendo cada par de ceros el valor de a y b respectivamente, significando que no estan siendo apretados, además se cumple con que primero se envien los de mayor valor. En cuanto a como se ven al ser negativos investigando encontre que aparecen como valores >= 0x8000 porque están en complemento a dos..
 
 Ahora, cambiando al nuevo código que transmite tanto en binario como en ASCII se obtiene lo siguiente:
@@ -24,8 +26,10 @@ Ahora, cambiando al nuevo código que transmite tanto en binario como en ASCII s
 
 Es ahora evidente como al pasarlo al hex los mensajes enviados son mucho más largos, no solo porque se envie dos veces, sino que dejando de lado el mensaje en bits se nota que se envia mucho más, incluso también quitando el mensaje que separa binario y ASCII, el mensaje en ASCII requiere muchos más bytes, demostrando asi una ventaja del lenguaje binario frente a el ASCII, lo cual lleva a preguntas como el ¿Cual es mejor entre ambos?, esto lleva a una respuesta y es que realmente cada uno tiene su fortaleza.
 
-### ¿En que casos es mejor uno que el otro desde el punto del diseño, considerando diferentes factores como la legibilidad y eficiencia?
 <a name="pregunta1"></a>
+
+### ¿En que casos es mejor uno que el otro desde el punto del diseño, considerando diferentes factores como la legibilidad y eficiencia?
+
 Pues esto es puede ser respondido teniendo en cuenta lo visto hasta ahora e investigando, El uso del ASCII permite una mayor legibilidad y entendimiento, es muchisimo más cómodo para comprender, facilita muchisimo el hecho de interpretar y depurar el contenido de un programa, ahora, como se vió anteriormente al cambiar por ultima vez el código y comparar uno a uno binario y ASCII se vió como este ultimo requiere mayor uso de bytes, esto puede en programas grandes afectar el rendimiento y la rapidez a comparación de el lenguaje binario.
 
 El lenguaje binario es entonces más rápido al momento de enviar datos, los envia de manera más compacta y sencilla y lo hace más rápido, su problema por otro lado es su legibilidad, puede ser en varios casos poco eficiente debido a que puede tener más errores debido a que necesita conocer bien el formato, si no se conoce bien su estructura puede generar errores facilmente. En cuanto a diseño el ASCII es muy usado debido a que permitió estandarizar una forma de representar el texto en estos programas y es usado mayormente en todo programa que requiera algun tipo de interfaz permitiendo que aquellos trabajando en esto puedan hacerlo de manera más cómoda y sencilla, el binario por otro lado es de por si el lenguaje que utiliza todo sistema para funcionar y codificar los mensajes en esto permite como ya lo dije anteriormente más rapidez y rendimiento, es útil principalmente en programas que utilizan grandes cantidades de datos.
@@ -39,6 +43,8 @@ Comparando el código como estaba antes a como estaba ahora respecto a la recepc
 
 la consola presenta este error, supongo que es un error al momento de enviar los datos de la nueva forma, el programa no recibe bien los datos juntandolos mal, es por esto que necesita la guia que el framing le brinda, este permite que un programa pueda verificar que todos los paquetes de datos se envien bien y leerlos correctamente, pero esto me dio ganas de indagar más del tema y hacerme la pregunta:
 
+<a name="pregunta2"></a>
+
 ### ¿Qué ventajas aporta el uso de un esquema de framing con cabecera y checksum en la comunicación binaria, en comparación con transmitir directamente los datos sin delimitadores, y en qué momentos puede volverse indispensable?
 Primero que nada hay que analizar poco a poco como ayuda a que un programa funcione correctamente y que lo hace mejor a simplemente enviarlo directamente:
 
@@ -47,6 +53,9 @@ Primero que nada se cuenta con el header, este permite que realmente el que reci
 El framing es vital porque sin el el programa debería confiar totalmente que la información que recibe esta completa y organizada, lo cual no es siempre verdad, como en el caso del ejemplo que tenemos que sacaba error, no siempre hay alguien que este vigilando el código para saber si si se envian los datos correctamentey el framing sirve como esto que permite que exista la integridad, sincronización y robustez en los datos recibidos.
 
 ## Actividad 04
+
+<a name="experimento"></a>
+
 Primero que nada debo explicar que tengo un problema que parece complicado de solucionar que pasaba con el código ejemplo también, investigando veo que es un error quizas relacionado con el navegador pero por más que cambie no funciona, es por esto que el código que tengo tiene los cambios que creo permitirán funcionar al código en condiciones normales pero no puedo probarlo, soy conciente de que esto baja mi calificación en la rúbrica pero nada que hacer.
 Error:
 <img width="833" height="683" alt="image" src="https://github.com/user-attachments/assets/90925771-9066-44ec-a0e8-ef4856ef4f47" />
@@ -319,10 +328,25 @@ function keyReleased() {
 }
 ````
 ## Autoevaluación y evidencias:
-Mi nota propuesta: 
+Mi nota propuesta: ``4,3``
 
-Criterio 1: profundidad de la indagación
+### Criterio 1: profundidad de la indagación
 
-Mi autoevaluación: me sitúo en el nivel Excelente (nota:4,8) porque…
-Evidencias: Tanto en la [actividad 02](#pregunta1) como en la activdad 03 me surgieron preguntas que pude resolver investigando y analizando lo obtenido en clase, estas preguntas iban más allá del qué y se preguntaban el porqué del diseño y en comparar en que situaciones y bajo que casos eran mejor ciertas estrategias y métodos de envio de datos.
+Mi autoevaluación: me sitúo en el nivel Excelente (4,8) porque…
+Evidencias: Tanto en la [actividad 02](#pregunta1) como en la [actividad 03](#pregunta2) me surgieron preguntas que pude resolver investigando y analizando lo obtenido en clase, estas preguntas iban más allá del qué y se preguntaban el porqué del diseño y en comparar en que situaciones y bajo que casos eran mejor ciertas estrategias y métodos de envio de datos.
+
+### Criterio 2: esfuerzo cognitivo y experimentación
+
+Mi autoevaluación: considero que mi nivel es En desarrollo (3,4) porque…
+Evidencias: Realicé el [experimento](#experimento) a pesar de las complicaciones dichas, analicé pero no pude experimentar más enviando diferentes datos, etc. sin embargo aproveche lo poco que tenia para entender y profundizar en que es el framing.
+
+### Criterio 3: calidad del análisis y la reflexión
+
+Mi autoevaluación: mi nivel aquí es Excelente (4,5) porque…
+Evidencias: Logré a partir no solo de momentos como la [actividad 02](#pregunta1) y [actividad 03](#pregunta2) logre ir analizando poco a poco lo que se iba presentando y dando hipotesis o respuestas en base a lo que tenia o a investigaciones externas.
+
+### Criterio 4: apropiación y articulación de conceptos
+
+Mi autoevaluación: demuestro mi apropiación en el nivel Excelente (4,5) porque…
+Evidencias: Pude ir entendiendo los ejemplos y relacionando los conceptos con los resultados de los mismos como en [este ejemplo](#ejemplo) después más adelante en la actividad 03 puede ir entendiendo como se relacionaba todo el envio de datos con el nuevo tema de framing comprendiendo su importancia y lo indispensable que es para garantizar un correcto envio de datos.
 
