@@ -2,6 +2,7 @@
 # Evidencias de la unidad 7
 
 ## Actividad 01
+<a name="1"></a>
 - URL que obtuve: ``https://zqdlcf9w-3000.use2.devtunnels.ms/`` creo que se necesita una diferente porque el proceso de conexión al tratarse de un dispositivo externo debe ser diferente y más complicada, y no depende unicamente de la IP de un solo dispositivo.
 - Nmp install y start se encargan de descargar todas las carpetas y dependencias de la ubicación asignada e iniciar el servidor, permitiendole empezar a escuchar.
 - Estos eran los mensajes, eran bastante iguales entre si .com/user-attachments/assets/376ee0d8-cc54-4510-bb3d-53d4f9e3c8c3" />
@@ -9,6 +10,7 @@
 - Me funcionó correctamente, no noté que hubiera este retraso.
 
 ## Actividad 02
+<a name="2"></a>
 - DevTunnels es necesario ya que en normalmente el localhost que obtenemos se refiere a la máquina en la que es reproducido, esto significa que el url que utilizamos anteriormente no funcionará para conectar dos dispositivos, existen otras soluciones para conectarlos pero se verían limitadas por el uso de una misma red y cualquier firewall, en general la conexión no es del todo segura, DevTunnels soluciona esto logrando crear un espacio seguro y accesible de manera sencilla.
 - Esta función identifica cuando se esta tocando la pantalla con el dedo, el threshold permite que solo tome en cuenta movimientos lo suficientemente significativos, de lo contrario culquier pequeño movimiento o vibración del dedo moveria el objeto, haciedo que se vea tembloroso y extraño además de llenar al sistema con demasiadas instrucciones.
 - DevTunnels permite utilizar los dos dispositivos de manera segura y sencilla sin importat si estan en una misma red ni tampoco importat firewalls existentes, al contrario de usar la IP local que es mucho más restringida e incomoda de usar.
@@ -17,6 +19,7 @@
 <img width="742" height="1600" alt="image" src="https://github.com/user-attachments/assets/2c3e011a-511a-4b96-89ec-cb0ba4be13ef" />
 
 ## Actividad 03
+<a name="3"></a>
 - ``express.static('public')`` le indica a Express que entregue archivos estáticos proveientes de la carpeta ``public`` este se activa cuando el servidor pide ``http://localhost:3000/index.html``  y entonces Express busca por ``public/index.html`` sin necesidad de que definamos rutas manuales, esto se relaciona con ``app.get('/ruta', ...)`` ya que tambien optiene algo que se pide pero la diferencia es que esta última define una ruta dinámica, cuando llega una petición GET a ``/ruta``, la función callback la maneja.
 - Primero que nada el navegador captura el menaje movil que recibe y los envia al servidor, el servidor recibe el evento ``message`` y envia un callback con este. Aqui el servidor lo loggea y usa ``socket.broadcast.emit('message', message)`` para retransmitir el mensaje a todos los demás clientes conectados excepto el que lo envió. Se envia con este y con io.emit o socket.emit  debido a que estos o envian de vuelta al socket actual (o sea socket.emit('message', ...) ) o a todos incluyendo al actual (io.emit('message', ...)), mientras que socket.broadcast.emit lo hace con todos menos el actual ya que no necesitamos que el cliente reciba de nuevo el mensaje que acaba de enviar.
 - En mensaje lo reciben todos menos el movil que lo envia (por lo explicado en la pregunta pasada)
@@ -26,7 +29,7 @@
 El diseño que pensé para esta actividad fue usar la canción "Once more to see you" de Mitski representando visualmente sus instrumentos y la vibra de la canción, esto separando entre los golpes fuertes y bajos de los tambores y los destellos por sonidos más agudos, además de la letra de la canción y un fondo que pasa de un atardecer (referencia al descrito al inicio de la canción) a la noche y más tarde la mañana, el usuario puede usar el mobil para desactivar las representaciones visuales de los instrumentos por separado además puede mover su dedo por la pantalla para hacer como ondas de agua. Lo realicé con ayuda de claude
 
 Esto es como se ve en el desktop
-
+<a name="4"></a>
 <img width="1919" height="1068" alt="image" src="https://github.com/user-attachments/assets/4e829f4e-6088-41ba-b7a5-11cf71158f3f" />
 
 Y esto en el mobil (un Ipad en este caso)
@@ -37,6 +40,7 @@ Y en este video esta mostrado como interactuan y como se ve mientras se reproduc
 [Prueba actividad 05](https://youtu.be/yll4ZvHB7ZM)
 
 Los códigos usados son:
+
 Desktop Index
 ```` js
 <!DOCTYPE html>
@@ -914,4 +918,16 @@ server.listen(port, () => {
     console.log('╚═══════════════════════════════════════════╝\n');
 });
 ````
-Y por último la canción esta subida a este drive, hay que meterla dentro del public y asegurandose de que tenga el nombre igual al referenciado en el código para que funicone
+Y por último la canción esta subida a este drive, hay que meterla dentro del public y asegurandose de que tenga el nombre igual al referenciado en el código para que funicone. [canción](https://upbeduco-my.sharepoint.com/:u:/g/personal/emmanuel_toro_upb_edu_co/ESdDnAh_SaVJjDJDdZZ9MeIBaFLKUlr8K0zX5LgT8iSNZA?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=JEZelg)
+
+# Autoevaluación
+## Nota propuesta: 4/5
+### Nota Actividad 01: 0.5/0.5
+Siento que logré tener un buen primer [acercamiento](#1) con el programa y un establecimiento inicial de preguntas
+### Nota Actividad 02: 0.5/0.5
+Creo que logré [comprender](#2) la razón detrás del uso de DevTunnels y el entender los conceptos mostrados y sus diferencias a utilizar el modelo anterior que era local.
+### Nota Actividad 03: 1/1
+Creo que logré explicar bien lo preguntado y [responder](#3) de manera adecuada las preguntas
+### Nota Actividad 04: 0/1
+### Nota Actividad 05: 2/2
+Me siento satisfecho con mi [diseño](#4), logré utilizar de manera adecuada la ayuda de la IA para realizar el proyecto que tenía en mente y utilizar de la misma manera que lo estamos haciendo los DevTunnels.
