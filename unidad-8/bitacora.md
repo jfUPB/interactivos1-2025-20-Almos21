@@ -2,7 +2,7 @@
 
 ## Actividad 01
 La canción que voy a elegir es House Tour de Sabrina Carpenter
-
+<a name="1"></a>
 -Referente visuales: 
 <img width="1643" height="918" alt="image" src="https://github.com/user-attachments/assets/63bb0e58-3612-459e-827d-53992b452db3" />
 
@@ -11,11 +11,15 @@ La canción que voy a elegir es House Tour de Sabrina Carpenter
 - Idea visuales:
 Para las visuales tengo la idea de representar la "casa" a la que se refiere sabrina en su canción, para esto quise inspirarme en su escenario del ultimo tour que ha estado haciendo y la casa de la pelicula de barbie, que siento tienen similitud y me dan las mismas vibras, tengo la intención de que se le permita al usuario pasar entre los pisos de la casa e ir moviendo a una mini Sabrina que este cantando adentro a lo largo de todos los pisos, pudiendo también cambiar los colores de fondo y dar un movimiento de cámara que haga que se sienta dinámicas las visuales.
 - El micro:bit va a afectar las visuales moviendo entre los tres pisos con los botones a y b. El movil tendrá un slider para controlar los colores de la escena en general y tres botones para cambiar las poses de sabrina, además un botón para alternar la vista entre una general donde se vea la casa en su totalidad y otra donde se haga zoom a Sabrina y la siga a lo largo del movimiento
+- Diagrama de conexión
+
+<img width="611" height="601" alt="Diagrama sin título" src="https://github.com/user-attachments/assets/ce03ba36-a819-467c-9b4f-72ecb1dde809" />
+
 
 ## Actividad 02
 - Proceso de construcción:
 El primer paso es el de poder incluir el microbit en el sevidor establecido anteriormente, esto en el apartado de desktop, ya que la conexión con el microbit es directa por usb, para esto agarré como base la máquina de estado hecha en p5.js anteriormente y la después utilicé la idea que tenía y la base de un código que ya permitía utilizar micro:bit dentro del servidor para desarrollarla con IA. Utilicé a Claude y chat gpt. Claude me dio una versión inicial base, pero con problemar como el que el audio no funcionaba y el zoom se hacia mal, chat gpt me ayudo a poder perfeccionar y solucionar errores.
-
+<a name="2"></a>
 ### Evidencia y Códigos:
 Este es el video de yo probando el programa:
 [Video](https://youtu.be/_gCW_xTQj2k?si=nwca7QXGehRkRCgQ)
@@ -985,3 +989,10 @@ while True:
     sleep(100)
 ````
 [Link al audio](https://upbeduco-my.sharepoint.com/:u:/g/personal/emmanuel_toro_upb_edu_co/EZpajg5D_zpPit38uNkb6swByJ65Qz6nXG6TuipHi3MTuQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=by62Z0)
+
+# Autoevaluación 
+## Nota propuesta: 4,4
+## Actividad 01 nota: 2,4/3
+Tuve un diseño claro con referentes y con el funcionamiento [pensado](#1) desde un inicio, que después pude llevar a ser funcional. Me falto un punto, por eso el 0,6 menos (12% de la nota total menos)
+## Actividad 02 nota: 2/2
+Logré ejecutar la funcionalidad a 100% pudiendo [cumplir](#2) con el diseño, con el uso de móvil y micro:bit y con los 2 puntos de la actividad
